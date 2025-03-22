@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="pt">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Calculadora de Itens D&D</title>
+        <script src="/js/scripts.js" defer></script>
+
+        <style>
+            body {
+                font-family: Arial, sans-serif;
+                margin: 20px;
+            }
+            table {
+                width: 100%;
+                border-collapse: collapse;
+                margin-bottom: 20px;
+            }
+            th,
+            td {
+                border: 1px solid #333;
+                padding: 8px;
+                text-align: left;
+            }
+            th {
+                background-color: #f2f2f2;
+            }
+            h3 {
+                margin-top: 40px;
+            }
+            .global-controls {
+                margin-bottom: 20px;
+            }
+            .search-container {
+                margin-bottom: 20px;
+            }
+            .hidden {
+                display: none;
+            }
+        </style>
+    </head>
+    <body>
+        <h2>Calculadora de Compra e Venda de Itens – D&D</h2>
+
+        <div class="global-controls">
+            <label for="global-type">Operação:</label>
+            <select id="global-type" onchange="atualizarTotal()">
+                <option value="comprar">Comprar</option>
+                <option value="vender">Vender</option>
+            </select>
+        </div>
+
+        <!-- Área de pesquisa -->
+        <div class="search-container">
+            <label for="search-input">Pesquisar Item:</label>
+            <input
+                type="text"
+                id="search-input"
+                placeholder="Digite o nome do item"
+                oninput="filterItems()"
+            />
+        </div>
+
+        <h3>Total: <span id="total-price">0 PP, 0 PO, 0 PC</span></h3>
+        <div id="tabelas-container"></div>
+    </body>
+</html>
